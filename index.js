@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const dotenv = require('dotenv');
 
+dotenv.config();
 mongoose
-    .connect(
-        "mongodb+srv://up_bihar_sotsongo:A84evSqopn4AHpej@cluster0.4jhnt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-    )
+    .connect(process.env.MONGO_URL)
     .then(() => console.log('DB Connected successfully'))
     .catch((err) => console.log(err))
 
